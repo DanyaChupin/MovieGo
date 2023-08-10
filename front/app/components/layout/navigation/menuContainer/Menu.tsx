@@ -3,6 +3,7 @@ import { IMenu } from './menu.interface'
 import MenuItem from './MenuItem'
 import AuthItems from './auth/AuthItems'
 import styles from './Menu.module.scss'
+
 const Menu: FC<{ menu: IMenu }> = ({ menu: { items, title } }) => {
 	return (
 		<div className={styles.menu}>

@@ -11,7 +11,7 @@ const Home: FC<IHome> = () => {
 		>
 			<Heading
 				title="Watch movies online"
-				className="text-gray-300 mb-8 text-xl "
+				className="text-gray-300 mb-8 text-xl"
 			/>
 		</Meta>
 	)

@@ -9,6 +9,7 @@ import logoImage from '@/assets/images/logo.svg'
 const Meta: FC<ISeo> = ({ title, description, image, children }) => {
 	const { asPath } = useRouter()
 	const currentUrl = `${process.env.APP_URL}${asPath}`
+
 	return (
 		<>
 			<Head>
