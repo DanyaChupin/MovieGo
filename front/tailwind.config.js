@@ -75,6 +75,8 @@ module.exports = {
 		},
 	},
 	plugins: [
+		require('@tailwindcss/forms'),
+		require('@tailwindcss/aspect-ratio'),
 		plugin(({ addComponents, theme, addUtilities }) => {
 			addComponents({
 				'.btn-primary': {
@@ -107,7 +109,7 @@ module.exports = {
 					'.text-shadow': {
 						textShadow: '1px 1px rgba(0,0,0,0.4)',
 					},
-					'.outlite-border-none': {
+					'.outline-border-none': {
 						outline: 'none',
 						border: 'none',
 					},
