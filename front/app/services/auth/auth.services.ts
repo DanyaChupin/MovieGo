@@ -4,6 +4,7 @@ import { axiosClassic } from 'api/interceptors'
 import { removeTokensStorage, saveToStorage } from './auth.helper'
 import Cookies from 'js-cookie'
 import { getContentType } from 'api/api.helpers'
+import { useRouter } from 'next/router'
 
 export const AuthService = {
 	async register(email: string, password: string) {
