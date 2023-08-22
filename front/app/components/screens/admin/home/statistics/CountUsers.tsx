@@ -4,7 +4,6 @@ import { useQuery } from '@tanstack/react-query'
 import { FC } from 'react'
 import cn from 'classnames'
 import styles from '../Admin.module.scss'
-
 const CountUsers: FC = () => {
 	const { isLoading, data: response } = useQuery(['Count users'], () =>
 		AdminService.getCountUsers()

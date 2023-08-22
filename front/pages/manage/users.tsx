@@ -1,6 +1,7 @@
+import UserList from '@/components/screens/admin/users/UserList'
 import { NextPageAuth } from '@/shared/types/auth.types'
 
 const UserListPage: NextPageAuth = () => {
-	return <div> UserListPage</div>
+	return <UserList />
 }
 export default UserListPage
