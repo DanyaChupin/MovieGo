@@ -1,4 +1,4 @@
-import { GenerService } from '@/services/genre.service'
+import { GenreService } from '@/services/genre.service'
 import { useQuery } from '@tanstack/react-query'
 import { IMenuItem } from '../menu.interface'
 import { getGenreUrl } from '@/config/url.config'
@@ -6,7 +6,7 @@ import { getGenreUrl } from '@/config/url.config'
 export const usePopularGenres = () => {
 	const queryData = useQuery(
 		['popular genre menu'],
-		() => GenerService.getAll(),
+		() => GenreService.getAll(),
 		{
 			select: ({ data }) =>
 				data
