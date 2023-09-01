@@ -11,7 +11,7 @@ const Logo: FC = () => {
 				alt="MovieGo"
 				draggable={false}
 			/>
-			<h1 className="text-xl">MovieGo</h1>
+			<h1 className="text-xl text-white">MovieGo</h1>
 		</Link>
 	)
 }

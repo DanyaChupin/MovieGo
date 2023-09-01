@@ -5,12 +5,15 @@ import { axiosClassic } from 'api/interceptors'
 import { IGenreEditInput } from '@/components/screens/admin/genre/genreEdit.interface'
 export const GenreService = {
 	async getAll(searchTerm?: string) {
-		return axiosClassic.get<IGenre[]>(getGenresUrl(``), {
+		return axiosClassic.get<IGenre[]>(getGenresUrl(''), {
 			params: searchTerm ? { searchTerm } : {},
 		})
 	},
 	async getById(_id: string) {
-		return axios.get<IGenre>(getGenresUrl(`/${_id}`))
+		return axios.get<IGenreEditInput>(getGenresUrl(`/${_id}`))
+	},
+	async create() {
+		return axios.post<string>(getGenresUrl(`/`))
 	},
 	async update(_id: string, data: IGenreEditInput) {
 		return axios.put<string>(getGenresUrl(`/${_id}`), data)

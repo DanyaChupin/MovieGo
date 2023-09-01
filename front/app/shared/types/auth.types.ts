@@ -1,4 +1,5 @@
 import { NextPage } from 'next'
+import { ReactNode } from 'react'
 
 export type TypeRoles = {
 	isOnlyAdmin?: boolean

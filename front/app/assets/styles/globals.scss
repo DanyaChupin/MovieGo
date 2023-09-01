@@ -10,7 +10,6 @@ html,
 body {
 	padding: 0;
 	margin: 0;
-	color: white;
 	font-family: 'Outfit', sans-serif;
 	@apply bg-gray-900;
 }
@@ -35,4 +34,30 @@ input[type='file'] ::-webkit-file-upload-button {
 
 input:focus {
 	box-shadow: none !important;
+}
+
+.admin-form {
+	@apply w-1/2 mt-12;
+}
+/* Slide animation */
+.slide-animation-enter {
+	opacity: 0;
+	transform: scale(0.9);
+}
+.slide-animation-enter-active {
+	opacity: 1;
+	transform: translateX(0);
+	transition:
+		opacity 300ms,
+		transform 300ms;
+}
+.slide-animation-exit {
+	opacity: 1;
+}
+.slide-animation-exit-active {
+	opacity: 0;
+	transform: scale(0.9);
+	transition:
+		opacity 300ms,
+		transform 300ms;
 }

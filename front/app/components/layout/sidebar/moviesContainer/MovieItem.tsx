@@ -3,7 +3,7 @@ import { IMovie } from '@/shared/types/movie.types'
 import Link from 'next/link'
 import { getGenreUrl, getMovieUrl } from '@/config/url.config'
 import Image from 'next/image'
-import { getGenresList } from '@/utils/movie/getGenresList'
+import { getGenresListEach } from '@/utils/movie/getGenresList'
 import MaterialIcon from '@/components/ui/MaterialIcon'
 import styles from './MovieList.module.scss'
 
@@ -26,8 +26,15 @@ const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 				</div>
 				<div className={styles.genres}>
 					{movie.genres.map((genre, idx) => (
-						<Link key={genre._id} href={getGenreUrl(genre.slug)}>
-							{getGenresList(idx, movie.genres.length, genre.name)}
+						<Link
+							key={genre._id}
+							href={getGenreUrl(genre.slug)}
+						>
+							{getGenresListEach(
+								idx,
+								movie.genres.length,
+								genre.name
+							)}
 						</Link>
 					))}
 				</div>

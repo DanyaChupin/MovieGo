@@ -32,12 +32,20 @@ const TextEditer: FC<ITextEditor> = ({
 	const onEditorStateChange = (editorState: EditorState) => {
 		setIsUpdated(true)
 		setEditorState(editorState)
-		return onChange(draftToHtml(convertToRaw(editorState.getCurrentContent())))
+		return onChange(
+			draftToHtml(convertToRaw(editorState.getCurrentContent()))
+		)
 	}
 	return (
-		<div className={cn(styles.common, styles.editorWrapper, 'animate-fade')}>
+		<div
+			className={cn(
+				styles.common,
+				styles.editorWrapper,
+				'animate-fade'
+			)}
+		>
 			<div>
-				<span>{placeholder}</span>
+				<span className="text-gray-600">{placeholder}</span>
 				<div className={styles.wrapper}>
 					<Editor
 						toolbarClassName={styles.toolbar}
@@ -52,7 +60,12 @@ const TextEditer: FC<ITextEditor> = ({
 								className: undefined,
 								component: undefined,
 								dropdownClassName: undefined,
-								options: ['bold', 'italic', 'underline', 'strikethrough'],
+								options: [
+									'bold',
+									'italic',
+									'underline',
+									'strikethrough',
+								],
 							},
 							blockType: {
 								inDropdown: false,
@@ -65,7 +78,9 @@ const TextEditer: FC<ITextEditor> = ({
 						}}
 					/>
 				</div>
-				{error && <div className={styles.error}>{error.message}</div>}
+				{error && (
+					<div className={styles.error}>{error.message}</div>
+				)}
 			</div>
 		</div>
 	)

@@ -2,19 +2,30 @@ import { axiosClassic } from 'api/interceptors'
 import { IActor } from '@/shared/types/movie.types'
 import axios from 'api/interceptors'
 import { getActorsUrl } from '@/config/api.config'
+import { IActorEditInput } from '@/components/screens/admin/actor/actorEdit.interface'
+
 export const ActorService = {
 	async getAll(searchTerm?: string) {
-		return axiosClassic.get<IActor[]>(getActorsUrl(``), {
+		return axiosClassic.get<IActor[]>(getActorsUrl(''), {
 			params: searchTerm ? { searchTerm } : {},
 		})
 	},
-	async getMOstPupularActor() {
-		const { data: movies } = await axiosClassic.get<IActor[]>(
+	async getMostPupular() {
+		const { data: actors } = await axiosClassic.get<IActor[]>(
 			getActorsUrl('/most-popular')
 		)
-		return movies
+		return actors
 	},
-	async deleteActor(_id: string) {
-		await axios.delete<string>(getActorsUrl(`/${_id}`))
+	async getById(_id: string) {
+		return axios.get<IActorEditInput>(getActorsUrl(`/${_id}`))
+	},
+	async update(_id: string, data: IActorEditInput) {
+		return axios.put<string>(getActorsUrl(`/${_id}`), data)
+	},
+	async create() {
+		return axios.post<string>(getActorsUrl('/'))
+	},
+	async delete(_id: string) {
+		return axios.delete<string>(getActorsUrl(`/${_id}`))
 	},
 }

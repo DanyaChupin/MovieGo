@@ -33,5 +33,6 @@ export interface IMovie {
 	countOpened: number
 	videoUrl: string
 	rating: number
+	description: ''
 	slug: string
 }
