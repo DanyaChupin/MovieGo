@@ -21,6 +21,7 @@
 		@apply text-center p-5;
 
 		img {
+			display: inline-block;
 			@apply rounded-layout shadow-lg image-like-bg;
 		}
 
