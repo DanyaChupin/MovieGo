@@ -11,8 +11,8 @@ const GalleryItem: FC<IGalleryItemProps> = ({ item, variant }) => {
 			href={item.link}
 			className={cn(styles.item, {
 				[styles.withText]: item.content,
-				[styles.horizontal]: (variant = 'horizontal'),
-				[styles.vertical]: (variant = 'vertical'),
+				[styles.horizontal]: variant === 'horizontal',
+				[styles.vertical]: variant === 'vertical',
 			})}
 		>
 			<Image
