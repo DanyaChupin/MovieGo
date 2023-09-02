@@ -7,20 +7,21 @@ import { ISlide } from '@/components/ui/slider/slider.interface'
 import { getActorUrl, getMovieUrl } from '@/config/url.config'
 import { getGenresList } from '@/utils/movie/getGenresList'
 import { ActorService } from '@/services/actor.service'
-import { IGellaryItem } from '@/components/ui/gallery/gallery.interface'
+import { IGallaryItem } from '@/components/ui/gallery/gallery.interface'
 
 const HomePage: NextPage<IHome> = ({ slides, actors, trendingMovie }) => {
 	return (
 		<Home slides={slides} actors={actors} trendingMovie={trendingMovie} />
 	)
 }
+
 export const getStaticProps: GetStaticProps = async () => {
 	try {
 		const { data: movies } = await MovieService.getAll()
 		const { data: dataActors } = await ActorService.getAll()
 		const dataTrendingMovie = await MovieService.getMostPupularMovies()
 
-		const trendingMovie: IGellaryItem[] = dataTrendingMovie
+		const trendingMovie: IGallaryItem[] = dataTrendingMovie
 			.slice(0, 7)
 			.map((m) => ({
 				link: getMovieUrl(m.slug),
@@ -28,7 +29,7 @@ export const getStaticProps: GetStaticProps = async () => {
 				posterPath: m.poster,
 			}))
 
-		const actors: IGellaryItem[] = dataActors.slice(0, 7).map((a) => ({
+		const actors: IGallaryItem[] = dataActors.slice(0, 7).map((a) => ({
 			link: getActorUrl(a.slug),
 			name: a.name,
 			posterPath: a.photo,
