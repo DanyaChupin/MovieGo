@@ -48,7 +48,12 @@ const ActorEdit: FC = () => {
 
 							<SlugField
 								generate={() =>
-									setValue('slug', generateSlug(getValues('name')))
+									setValue(
+										'slug',
+										generateSlug(
+											getValues('name')
+										)
+									)
 								}
 								register={register}
 								error={errors.slug}

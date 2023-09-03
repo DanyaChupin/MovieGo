@@ -21,7 +21,10 @@ export const useUsers = () => {
 					(user): ITableItem => ({
 						_id: user._id,
 						editUrl: getAdminUrl(`user/edit/${user._id}`),
-						items: [user.email, convertMongoDate(user.createdAt)],
+						items: [
+							user.email,
+							convertMongoDate(user.createdAt),
+						],
 					})
 				),
 			onError(error) {

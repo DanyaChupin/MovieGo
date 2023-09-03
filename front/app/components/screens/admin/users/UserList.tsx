@@ -7,13 +7,17 @@ import { useUsers } from './useUsers'
 import AdminTable from '@/components/ui/adminTable/AdminTable'
 
 const UserList: FC = () => {
-	const { handleSearch, isLoading, searchTerm, data, deleteAsync } = useUsers()
+	const { handleSearch, isLoading, searchTerm, data, deleteAsync } =
+		useUsers()
 	return (
 		<Meta title="Users">
 			<AdminNavigation />
 			<Heading title="Users" />
 
-			<AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} />
+			<AdminHeader
+				handleSearch={handleSearch}
+				searchTerm={searchTerm}
+			/>
 			<AdminTable
 				isLoading={isLoading}
 				headerItems={['Email', 'Date register']}
