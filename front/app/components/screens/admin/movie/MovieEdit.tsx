@@ -17,7 +17,7 @@ import { useAdminActors } from './useAdminActors'
 import { useAdminGenres } from './useAdminGenres'
 import dynamic from 'next/dynamic'
 
-const DynamicSelect = dynamic(() => import('@/ui/select/Select'), {
+const DynamicSelect = dynamic(() => import('@/components/ui/select/Select'), {
 	ssr: false,
 })
 

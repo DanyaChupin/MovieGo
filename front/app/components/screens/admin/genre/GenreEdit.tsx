@@ -16,7 +16,7 @@ import { stripHtml } from 'string-strip-html'
 import dynamic from 'next/dynamic'
 
 const DynamicTextEditor = dynamic(
-	() => import('@/ui/formElements/TextEditor'),
+	() => import('@/components/ui/formElements/TextEditor'),
 	{
 		ssr: false,
 	}
@@ -57,7 +57,12 @@ const GenreEdit: FC = () => {
 							<div style={{ width: '31%' }}>
 								<SlugField
 									generate={() =>
-										setValue('slug', generateSlug(getValues('name')))
+										setValue(
+											'slug',
+											generateSlug(
+												getValues('name')
+											)
+										)
 									}
 									register={register}
 									error={errors.slug}
@@ -91,7 +96,9 @@ const GenreEdit: FC = () => {
 							rules={{
 								validate: {
 									required: (v) =>
-										(v && stripHtml(v).result.length > 0) ||
+										(v &&
+											stripHtml(v).result
+												.length > 0) ||
 										'Description is required!',
 								},
 							}}
