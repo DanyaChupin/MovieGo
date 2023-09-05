@@ -12,7 +12,11 @@ export const useGenres = () => {
 	const [searchTerm, setSearchTerm] = useState('')
 	const debouncedSearch = useDebounce(searchTerm, 500)
 
-	const queryData = useQuery(
+	const {
+		data: genres,
+		refetch,
+		isLoading,
+	} = useQuery(
 		['genre list', debouncedSearch],
 		() => GenreService.getAll(debouncedSearch),
 		{
@@ -56,7 +60,7 @@ export const useGenres = () => {
 			},
 			onSuccess() {
 				toastr.success('Delete genre', 'delete was successful')
-				queryData.refetch()
+				refetch()
 			},
 		}
 	)
@@ -64,11 +68,13 @@ export const useGenres = () => {
 	return useMemo(
 		() => ({
 			handleSearch,
-			...queryData,
+			genres,
 			searchTerm,
 			createAsync,
 			deleteAsync,
+			isLoading,
+			refetch,
 		}),
-		[queryData, createAsync, searchTerm, deleteAsync]
+		[genres, createAsync, searchTerm, deleteAsync]
 	)
 }

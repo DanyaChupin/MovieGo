@@ -7,6 +7,7 @@ const AuthPlaceholder: FC<{ slug: string }> = ({ slug }) => {
 		<div className={styles.placeholder}>
 			<div>
 				<div>You must be logged in to start watching</div>
+
 				<AuthButton slug={slug} />
 			</div>
 		</div>

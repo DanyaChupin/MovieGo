@@ -7,10 +7,12 @@ import { toastError } from '@/utils/toastError'
 import { getKeys } from '@/utils/object/getKeys'
 import { toastr } from 'react-redux-toastr'
 import { getAdminUrl } from '@/config/url.config'
+import { useGenres } from '../genres/useGenres'
+import { usePopularGenres } from '@/components/layout/navigation/menuContainer/genres/usePopularGenres'
 
 export const useGenreEdit = (setValue: UseFormSetValue<IGenreEditInput>) => {
 	const { push, query } = useRouter()
-
+	const queryData = usePopularGenres()
 	const genreId = String(query.id)
 	const { isLoading } = useQuery(
 		['genre', genreId],
@@ -33,7 +35,7 @@ export const useGenreEdit = (setValue: UseFormSetValue<IGenreEditInput>) => {
 		{
 			onSuccess: () => {
 				toastr.success('Update genre', 'update was successful')
-
+				queryData.refetch()
 				push(getAdminUrl('genres'))
 			},
 			onError: (err) => {
