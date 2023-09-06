@@ -7,6 +7,8 @@ import { IVideoPlayer } from './video.types'
 import AuthPlaceholder from './AuthPlaceholder/AuthPlaceholder'
 import styles from './VideoPlayer.module.scss'
 
+
+
 const VideoPlayer: FC<IVideoPlayer> = ({ slug, videoSource }) => {
 	const { actions, video, videoRef } = useVideo()
 	const { user } = useAuth()

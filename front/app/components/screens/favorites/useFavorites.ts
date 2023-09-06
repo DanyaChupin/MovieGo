@@ -3,6 +3,7 @@ import { UserService } from '@/services/user.service'
 import { useQuery } from '@tanstack/react-query'
 
 export const useFavorites = () => {
+
 	const { user } = useAuth()
 
 	const {
@@ -12,6 +13,7 @@ export const useFavorites = () => {
 	} = useQuery(['favorite movies'], () => UserService.getFavorites(), {
 		select: ({ data }) => data,
 		enabled: !!user,
+
 	})
 	return {
 		isLoading,
