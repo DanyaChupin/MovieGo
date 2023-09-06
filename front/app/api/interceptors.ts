@@ -1,12 +1,13 @@
-import { API_URL } from '@/config/api.config'
+import { API_SERVER_URL, API_URL } from '@/config/api.config'
 import axios from 'axios'
 import { errorCatch, getContentType } from './api.helpers'
 import Cookies from 'js-cookie'
 import { AuthService } from '@/services/auth/auth.services'
 import { removeTokensStorage } from '@/services/auth/auth.helper'
+import { IS_PRODUCTION } from '@/config/constants'
 
 export const axiosClassic = axios.create({
-	baseURL: API_URL,
+	baseURL: IS_PRODUCTION ? API_SERVER_URL : API_URL,
 	headers: getContentType(),
 })
 
@@ -41,7 +42,8 @@ instance.interceptors.response.use(
 				await AuthService.getNewTokens()
 				return instance.request(originalRequest)
 			} catch (error) {
-				if (errorCatch(error) === 'jwt expired') removeTokensStorage()
+				if (errorCatch(error) === 'jwt expired')
+					removeTokensStorage()
 			}
 		}
 		throw error

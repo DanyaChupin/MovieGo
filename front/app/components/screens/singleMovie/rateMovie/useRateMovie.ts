@@ -1,14 +1,13 @@
-import { SubmitHandler } from 'react-hook-form'
 import { RatingService } from '@/services/rating.service'
 import { toastError } from '@/utils/toastError'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
-import { toastr } from 'react-redux-toastr'
 
 export const useRateMovie = (movieId: string) => {
 	const [rating, setRating] = useState(0)
 
 	const [isSended, setIsSended] = useState(false)
+
 	const { refetch } = useQuery(
 		['your movie', movieId],
 		() => RatingService.getByUserMovie(movieId),

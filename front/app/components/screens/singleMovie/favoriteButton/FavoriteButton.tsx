@@ -9,14 +9,16 @@ import styles from './FavoriteButton.module.scss'
 
 const FavoriteButton: FC<{ movieId: string }> = ({ movieId }) => {
 	const [isSmashed, setIsSmashed] = useState(false)
-	const { favoritesMovies, refetch } = useFavorites()
+	const favorites = useFavorites()
 
 	useEffect(() => {
-		if (!favoritesMovies) return
+		if (!favorites?.favoritesMovies) return
 
-		const isHasMovie = favoritesMovies.some((f) => f._id === movieId)
+		const isHasMovie = favorites?.favoritesMovies?.some(
+			(f) => f._id === movieId
+		)
 		if (isSmashed !== isHasMovie) setIsSmashed(isHasMovie)
-	}, [favoritesMovies, isSmashed, movieId])
+	}, [favorites?.favoritesMovies, isSmashed, movieId])
 
 	const { mutateAsync } = useMutation(
 		['update favorites'],
@@ -24,7 +26,7 @@ const FavoriteButton: FC<{ movieId: string }> = ({ movieId }) => {
 		{
 			onSuccess: () => {
 				setIsSmashed(!isSmashed)
-				refetch()
+				favorites?.refetch()
 			},
 			onError: (err) => {
 				toastError(err, 'Update favorites')

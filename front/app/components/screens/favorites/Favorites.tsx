@@ -7,19 +7,19 @@ import SkeletonLoader from '@/components/ui/SkeletonLoader'
 import FavoritesItem from './FavoritesItem'
 
 const Favorites: FC = () => {
-	const { favoritesMovies, isLoading } = useFavorites()
+	const favorites = useFavorites()
 	return (
 		<Meta title="Favorites">
 			<Heading title="Favorites" />
 			<section className={styles.favorites}>
-				{isLoading ? (
+				{favorites?.isLoading ? (
 					<SkeletonLoader
 						count={3}
 						className={styles.skeletonLoader}
 						containerClassName={styles.containerLoader}
 					/>
 				) : (
-					favoritesMovies?.map((movie) => (
+					favorites?.favoritesMovies?.map((movie) => (
 						<FavoritesItem movie={movie} key={movie._id} />
 					))
 				)}
