@@ -1,8 +1,8 @@
 import { FC } from 'react'
 import Navigation from './navigation/Navigation'
 import Sidebar from './sidebar/Sidebar'
-import styles from './Layout.module.scss'
 import { IChildren } from '@/shared/types/children.types'
+import styles from './Layout.module.scss'
 
 const Layout: FC<IChildren> = ({ children }) => {
 	return (

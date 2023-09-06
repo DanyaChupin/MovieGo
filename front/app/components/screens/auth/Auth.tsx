@@ -22,7 +22,7 @@ const Auth: FC = () => {
 		formState,
 		reset,
 	} = useForm<IAuthInput>({
-		mode: 'OnChange',
+		mode: 'onChange',
 	})
 
 	const { login, register } = useActions()

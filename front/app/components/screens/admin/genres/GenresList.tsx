@@ -11,7 +11,7 @@ const GenresList: FC = () => {
 		handleSearch,
 		isLoading,
 		searchTerm,
-		data,
+		genres,
 		deleteAsync,
 		createAsync,
 	} = useGenres()
@@ -29,7 +29,7 @@ const GenresList: FC = () => {
 				isLoading={isLoading}
 				headerItems={['Name', 'Slug']}
 				removeHandler={deleteAsync}
-				tableItems={data || []}
+				tableItems={genres || []}
 			/>
 		</Meta>
 	)

@@ -5,12 +5,13 @@ import { FC, MouseEvent } from 'react'
 
 const LogoutButton: FC = () => {
 	const { logout } = useActions()
-	const router = useRouter()
+	const { push } = useRouter()
 	const handleLogout = (e: MouseEvent<HTMLAnchorElement>) => {
 		e.preventDefault()
 
 		logout()
-		router.push('/')
+
+		push('/')
 	}
 	return (
 		<li>

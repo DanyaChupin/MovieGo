@@ -1,5 +1,4 @@
 import Layout from '@/components/layout/Layout'
-import { IChildren } from '@/shared/types/children.types'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { FC } from 'react'
 import ReduxToast from './ReduxToast'
