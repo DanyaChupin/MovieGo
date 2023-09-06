@@ -8,6 +8,7 @@ import AuthPlaceholder from './AuthPlaceholder/AuthPlaceholder'
 import styles from './VideoPlayer.module.scss'
 import { useRenderClient } from '@/hooks/useRenderClient'
 
+
 const VideoPlayer: FC<IVideoPlayer> = ({ slug, videoSource }) => {
 	const { actions, video, videoRef } = useVideo()
 	const { user } = useAuth()
@@ -49,6 +50,7 @@ const VideoPlayer: FC<IVideoPlayer> = ({ slug, videoSource }) => {
 									}
 								/>
 							</button>
+
 							<button onClick={actions.fastForward}>
 								<MaterialIcon name="MdUpdate" />
 							</button>

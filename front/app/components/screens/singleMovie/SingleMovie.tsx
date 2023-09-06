@@ -13,6 +13,8 @@ import { useRenderClient } from '@/hooks/useRenderClient'
 const DynamicVideoPlayer = dynamic(() => import('@/ui/videoPlayer/VideoPlayer'))
 const DynamicRateMovie = dynamic(() => import('./rateMovie/RateMovie'))
 
+
+
 const SingleMovie: FC<IMoviePage> = ({ movie, similarMovies }) => {
 	useUpdateCountOpened(movie.slug)
 	const { isRenderClient } = useRenderClient()
@@ -22,6 +24,7 @@ const SingleMovie: FC<IMoviePage> = ({ movie, similarMovies }) => {
 				image={movie.bigPoster}
 				Detail={() => <Content movie={movie} />}
 			/>
+
 			{isRenderClient && (
 				<>
 					<DynamicVideoPlayer
@@ -35,6 +38,7 @@ const SingleMovie: FC<IMoviePage> = ({ movie, similarMovies }) => {
 					<DynamicRateMovie id={movie._id} slug={movie.slug} />
 				</>
 			)}
+
 		</Meta>
 	)
 }
