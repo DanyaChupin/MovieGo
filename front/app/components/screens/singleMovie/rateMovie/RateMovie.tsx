@@ -11,14 +11,6 @@ interface IRateMovie {
 }
 const RateMovie: FC<IRateMovie> = ({ id, slug }) => {
 	const { user } = useAuth()
-	if (!user)
-		return (
-			<div className={styles.wrapper}>
-				<h3>How do you like the movie</h3>
-				<p>Ratings improve recommendations</p>
-				<AuthButton slug={slug} />
-			</div>
-		)
 	const { handleClick, isSended, rating } = useRateMovie(id)
 	return (
 		<div className={styles.wrapper}>

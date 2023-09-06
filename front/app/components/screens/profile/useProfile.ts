@@ -4,11 +4,14 @@ import { useMutation, useQuery } from '@tanstack/react-query'
 import { UserService } from '@/services/user.service'
 import { toastError } from '@/utils/toastError'
 import { toastr } from 'react-redux-toastr'
+import { useAuth } from '@/hooks/useAuth'
 
 export const useProfile = (setValue: UseFormSetValue<IProfileInput>) => {
+	const { user } = useAuth()
 	const { isLoading } = useQuery(
 		['profile'],
 		() => UserService.getProfile(),
+
 		{
 			onSuccess({ data }) {
 				setValue('email', data.email)
@@ -16,6 +19,7 @@ export const useProfile = (setValue: UseFormSetValue<IProfileInput>) => {
 			onError(error) {
 				toastError(error, 'Get profile')
 			},
+			enabled: !!user,
 		}
 	)
 

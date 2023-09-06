@@ -1,8 +1,8 @@
-import { IGellaryItem } from '@/components/ui/gallery/gallery.interface'
+import { IGallaryItem } from '@/components/ui/gallery/gallery.interface'
 import { ISlide } from '@/components/ui/slider/slider.interface'
 
 export interface IHome {
 	slides: ISlide[]
-	trendingMovie: IGellaryItem[]
-	actors: IGellaryItem[]
+	trendingMovie: IGallaryItem[]
+	actors: IGallaryItem[]
 }

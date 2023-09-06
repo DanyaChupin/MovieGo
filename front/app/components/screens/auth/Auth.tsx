@@ -9,10 +9,11 @@ import Heading from '@/components/ui/heading/Heading'
 import Button from '@/components/ui/formElements/Button'
 import AuthFields from './AuthFields'
 import { useActions } from '@/hooks/useActions'
+import { useRouter } from 'next/router'
 
 const Auth: FC = () => {
 	useAuthRedirect()
-
+	const { push } = useRouter()
 	const { isLoading } = useAuth()
 	const [type, setType] = useState<'login' | 'register'>('login')
 
@@ -32,6 +33,7 @@ const Auth: FC = () => {
 		else if (type === 'register') register(data)
 
 		reset()
+		push('/')
 	}
 
 	return (
