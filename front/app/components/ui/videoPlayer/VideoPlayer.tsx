@@ -6,7 +6,7 @@ import MaterialIcon from '../MaterialIcon'
 import { IVideoPlayer } from './video.types'
 import AuthPlaceholder from './AuthPlaceholder/AuthPlaceholder'
 import styles from './VideoPlayer.module.scss'
-import { useRenderClient } from '@/hooks/useRenderClient'
+
 
 
 const VideoPlayer: FC<IVideoPlayer> = ({ slug, videoSource }) => {

@@ -23,7 +23,7 @@ const AuthFields: FC<IAuthFields> = ({
 						message: 'Email is not valid',
 					},
 				})}
-				placeholder="Email"
+				placeholder="E-mail"
 				error={errors.email}
 			/>
 			<Field

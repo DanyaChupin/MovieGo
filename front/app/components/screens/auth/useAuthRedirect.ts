@@ -8,7 +8,6 @@ export const useAuthRedirect = () => {
 	const { query, push } = useRouter()
 	const redirect = String(query.redirect) || '/'
 
-	//fix bag redirect after authorization
 	useEffect(() => {
 		if (user) push(redirect)
 	}, [user])
